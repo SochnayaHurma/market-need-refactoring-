@@ -7,4 +7,5 @@ if (!empty($names)):
     endforeach;
 endif;
 
+echo $this->getDbLogs();
 ?>

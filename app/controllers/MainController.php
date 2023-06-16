@@ -10,7 +10,7 @@ class MainController extends Controller
     public function indexAction()
     {
         $names = $this->model->get_names();
-
+        R::getRow('SELECT * FROM `name` WHERE `name` = \'Петров\'');
         $this->setMeta('Главная страница', 'Description', 'keywords..');
         $this->set(compact('names'));
     }
