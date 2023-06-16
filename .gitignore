@@ -1,0 +1,5 @@
+tmp/logs/*
+config/config_db.php
+vendor/*
+!vendor/dopler_core/
+
