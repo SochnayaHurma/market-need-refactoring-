@@ -12,7 +12,7 @@ define("LOGS", ROOT .  "/tmp/logs");
 define("CONFIG", ROOT . "/config");
 
 define("LAYOUT", "ishop");
-define("PATH", "http://dopler:8888");
+define("PATH", "http://dopler");
 define("ADMIN", "http://dopler:8888/admin");
 define("NO_IMAGE", "uploads/no_image.jpg");
 
