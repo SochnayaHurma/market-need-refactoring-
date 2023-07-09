@@ -3,16 +3,17 @@
 namespace app\controllers;
 
 use RedBeanPHP\R;
-use dopler_core\Controller;
 
-class MainController extends Controller
+
+class MainController extends AppController
 {
     public function indexAction()
     {
-        $names = $this->model->get_names();
-        R::getRow('SELECT * FROM `name` WHERE `name` = \'Петров\'');
+        $slides = R::findAll('slider');
+        $products = $this->model->get_hits(1, 6); 
+        $this->set(compact('slides', 'products'));
         $this->setMeta('Главная страница', 'Description', 'keywords..');
-        $this->set(compact('names'));
+
     }
 }
 ?>

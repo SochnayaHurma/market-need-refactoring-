@@ -11,7 +11,6 @@ class App
         self::$app = Registry::getInstance();
         $this->getParams();
         Router::dispatch($query);
-        echo 'asd';
     }
     protected function getParams()
     {
