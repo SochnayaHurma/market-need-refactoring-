@@ -13,6 +13,7 @@ class AppController extends Controller
 {
     public function __construct(array $route)
     {
+
         parent::__construct($route);
         new AppModel();
         App::$app->setProperty('languages', Language::getLanguages());
@@ -20,6 +21,9 @@ class AppController extends Controller
             'language', 
             Language::getLanguage(App::$app->getProperty('languages'))
         );
+        $lang = App::$app->getProperty("language");
+        \dopler_core\Language::load($lang['code'], $route);
+
     }
 }
 

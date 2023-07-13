@@ -2,7 +2,7 @@
 	<html lang="en">
 	<head>
 		<meta charset="utf-8">
-        <base href="/">
+        <base href="<?=baseUrl()?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="<?= PATH ?>/assets/bootstrap/css/bootstrap.min.css">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,7 +27,7 @@
 						<div class="col text-end icons">
 							<form>
 								<div class="input-group" id="search">
-									<input type="text" class="form-control" placeholder="Search..." name="s">
+									<input type="text" class="form-control" placeholder="<?= __("tpl_search")?>..." name="s">
 									<button class="btn close-search" type="button"><i class="fas fa-times"></i></i></button>
 									<button class="btn" type="submit"><i class="fas fa-search"></i></button>
 								</div>
@@ -46,8 +46,8 @@
 									<i class="far fa-user"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#">Авторизация</a></li>
-									<li><a class="dropdown-item" href="#">Регистрация</a></li>
+									<li><a class="dropdown-item" href="#"><?= __("tpl_login")?></a></li>
+									<li><a class="dropdown-item" href="#"><?= __("tpl_signup")?></a></li>
 								</ul>
 							</div>
 							<?php new \app\widgets\language\Language ?>
@@ -61,7 +61,7 @@
 
 					<nav class="navbar navbar-expand-lg navbar-light">
 						<div class="container-fluid p-0">
-							<a class="navbar-brand" href="/"><?= \dopler_core\App::$app->getProperty('site_name');?></a>
+							<a class="navbar-brand" href=""><?= \dopler_core\App::$app->getProperty('site_name');?></a>
 							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
