@@ -11,7 +11,7 @@ class MainController extends AppController
 {
     public function indexAction()
     {
-        __("tpl_search");
+
         $current_language = App::$app->getProperty('language');
         $slides = R::findAll('slider');
         $products = $this->model->get_hits($current_language['id'], 6); 

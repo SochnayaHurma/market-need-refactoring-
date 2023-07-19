@@ -15,8 +15,14 @@
                     $<?=$product['price'];?>
                 </div>
                 <div class="product-links">
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                    <a href="#"><i class="far fa-heart"></i></a>
+                    <a 
+                    class="add-to-cart" 
+                    href="card/add?id=<?= $product['id'];?>"
+                    data-id="<?= $product['id'];?>"
+                    ><i 
+                    class="fas fa-shopping-cart"
+                    ></i></a>
+                    <a class="" href="#"><i class="far fa-heart"></i></a>
                 </div>
             </div>
         </div>

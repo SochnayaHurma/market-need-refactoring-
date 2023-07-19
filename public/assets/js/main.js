@@ -1,4 +1,18 @@
 $(function () {
+  $('.add-to-cart').on('click', function(e) {
+    e.preventDefault();
+    const id = $(this).data('id');
+    let quantityValue = $('#input-quantity').val();
+    const qty = quantityValue ? quantityValue : 1;
+    const currentProd = $(this);
+    $.ajax({
+      url: `cart/add?id=${id}`,
+      type: 'GET',
+      data: {id, qty},
+      success: function(resp) {},
+    });
+  });
+
   $(".open-search").click(function (e) {
     e.preventDefault();
     $("#search").addClass("active");
