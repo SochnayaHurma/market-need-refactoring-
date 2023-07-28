@@ -1,4 +1,23 @@
 $(function () {
+  $('#get-cart').on('click', function(e){
+    e.preventDefault();
+    $.ajax({
+      url: 'cart/show',
+      type: 'GET',
+      success: function(resp){
+        showCart(resp);
+      },
+      error: function(){}
+    });
+  });
+
+  function showCart(cart){
+    $('#cart-modal .modal-cart-content').html(cart);
+    const myModalEl = document.querySelector('#cart-modal');
+    const modal = bootstrap.Modal.getOrCreateInstance(myModalEl);
+    modal.show();
+  };
+
   $('.add-to-cart').on('click', function(e) {
     e.preventDefault();
     const id = $(this).data('id');
@@ -9,7 +28,13 @@ $(function () {
       url: `cart/add?id=${id}`,
       type: 'GET',
       data: {id, qty},
-      success: function(resp) {},
+      success: function(resp) {
+        showCart(resp);
+      },
+      error: function(err) {
+
+        alert('Error!');
+      }
     });
   });
 

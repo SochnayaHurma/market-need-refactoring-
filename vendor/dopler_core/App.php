@@ -6,6 +6,7 @@ class App
     public static $app;
     public function __construct()
     {
+        session_start();
         $query = trim(urldecode($_SERVER['QUERY_STRING']), '/');
         new ErrorHandler;
         self::$app = Registry::getInstance();

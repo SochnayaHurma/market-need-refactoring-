@@ -4,7 +4,7 @@ require_once HELPERS . "/functions.php";
 require_once CONFIG . "/routes.php";
 
 if (PHP_MAJOR_VERSION < 8){
-    die("иди нахуй отсюда");
+    die();
 }
 new \dopler_core\App();
 
