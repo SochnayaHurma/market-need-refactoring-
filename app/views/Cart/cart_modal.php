@@ -25,6 +25,7 @@
                             <td>
                                 <a 
                                     href="cart/delete?id=<?= $prod_id?>"
+                                    data-id="<?= $prod_id?>"
                                     class="del-item"
                                 ><i class="far fa-trash-alt"></i></a>
                             </td>
@@ -36,7 +37,7 @@
                     </tr>
                     <tr>
                         <td col="4" class="text-end"><?php __('tpl_cart_sum');?></td>
-                        <td class="cart-qty"><?= $_SESSION['cart.sum']?>$</td>
+                        <td class="cart-sum"><?= $_SESSION['cart.sum']?>$</td>
                     </tr>
                 </tbody>
             </table>
@@ -49,6 +50,6 @@
     <button type="button" class="btn btn-success ripple" data-bs-dismiss="modal"><?= __('tpl_cart_btn_continue')?></button>
     <?php if (!empty($_SESSION['cart'])):?>
         <button type="button" class="btn btn-primary"><?= __('tpl_cart_btn_order')?></button>
-        <button type="button" class="btn btn-danger"><?= __('tpl_cart_btn_clear')?></button>
+        <button id="clear-cart" type="button" class="btn btn-danger"><?= __('tpl_cart_btn_clear')?></button>
     <?php endif; ?>
 </div>

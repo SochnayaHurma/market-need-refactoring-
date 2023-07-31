@@ -20,7 +20,7 @@ return [
     'tpl_cart_btn_continue' => 'Продолжить покупки',
     'tpl_cart_btn_order' => 'Оформить заказ',
     'tpl_cart_btn_clear' => 'Очистить корзину',
-    'tpl_cart_btn_empty' => 'Корзина пуста',
+    'tpl_cart_empty' => 'Корзина пуста',
 
     'tpl_login' => 'Авторизация',
     'tpl_signup' => 'Регистрация',
