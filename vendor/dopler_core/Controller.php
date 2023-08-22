@@ -40,12 +40,12 @@ abstract class Controller
         $this->data = $data;
     }
 
-    public function setMeta(string $title = '', string $description = '', string $keywords = '')
+    public function setMeta(string $title = '', $description = '', $keywords = '')
     {
         $this->meta = [
             'title' => App::$app->getProperty('site_name') . '::' . $title,
-            'description' => $description,
-            'keywords' => $keywords,
+            'description' => $description ? $description : '',
+            'keywords' => $keywords ? $keywords : '',
         ];
     }
 
@@ -60,6 +60,14 @@ abstract class Controller
         $prefix = str_replace('\\', '/', $this->route['admin_prefix']);
         require APP . "/views/{$prefix}/{$this->route['controller']}/{$view}.php";
         die;
+    }
+
+    public function error_404(string $folder = 'Error', string $view = '404', int $response = 404)
+    {
+        http_response_code($response);
+        $this->setMeta(___('tpl_error_404'));
+        $this->route['controller'] = 'Error';
+        $this->view = $view;
     }
 }   
 

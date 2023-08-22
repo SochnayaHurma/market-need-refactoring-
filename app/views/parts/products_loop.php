@@ -19,10 +19,12 @@
                     class="add-to-cart" 
                     href="card/add?id=<?= $product['id'];?>"
                     data-id="<?= $product['id'];?>"
-                    ><i 
-                    class="fas fa-shopping-cart"
-                    ></i></a>
-                    <a class="" href="#"><i class="far fa-heart"></i></a>
+                    ><?= get_cart_icon($product['id']);?></a>
+                    <?php if (in_array($product['id'], \dopler_core\App::$app->getProperty('wishlist'))):?>
+                        <a class="delete-to-wishlist" href="wishlist/delete?id=<?=$product['id']?>" data-id="<?=$product['id']?>"><i class="fas fa-hand-holding-heart"></i></a>
+                    <?php else: ?>
+                        <a class="add-to-wishlist" href="wishlist/add?id=<?=$product['id']?>" data-id="<?=$product['id']?>"><i class="far fa-heart"></i></a>
+                    <?php endif;?>
                 </div>
             </div>
         </div>

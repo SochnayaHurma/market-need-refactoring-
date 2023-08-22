@@ -7,6 +7,13 @@ return [
     'tpl_we_online' => 'We are online',
     'tpl_search' => 'Search...',
     'tpl_home_link' => 'Home',
+    'tpl_about_shop' => 'About shop',
+    'tpl_pay_deliver' => 'Payment and delivery',
+    'tpl_nonstop' => 'Nonstop',
+
+    'tpl_address' => "c. Moscow, s. Pushkina, h. Kolotushkona",
+    'tpl_work_mode' => 'Monday-Sunday: 9:00 AM - 6:00 PM',
+
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
     'tpl_total_pagination' => 'product(s) from',
@@ -39,13 +46,12 @@ return [
     'tpl_signup_name_input' => 'Name',
     'tpl_signup_address_input' => 'Address',
 
-    'tpl_search_title' => 'Search',
-    'tpl_search_query' => 'Search by: ',
-
     'tpl_wishlist_add_success' => 'Product added to favorites',
     'tpl_wishlist_add_error' => 'Error adding product to favorites',
     'tpl_wishlist_delete_success' => 'Product removed from favorites',
     'tpl_wishlist_delete_error' => 'Error removing a product from favorites',
 
-    'tpl_error_404' => '404 - Page not found',
+    'tpl_error_404' => '404 - Page not found.',
+    'tpl_success' => 'Success',
+    'tpl_error' => 'Error!',
 ];

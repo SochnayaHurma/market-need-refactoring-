@@ -1,3 +1,4 @@
+// Block ADD-TO-CART
 $(function () {
   $('#get-cart').on('click', function(e){
     e.preventDefault();
@@ -30,11 +31,16 @@ $(function () {
     const id = $(this).data('id');
     let quantityValue = $('#input-quantity').val();
     const qty = quantityValue ? quantityValue : 1;
+    const $this = $(this);
     $.ajax({
-      url: `cart/add?id=${id}&qty=${qty}`,
+      url: `cart/add`,
       type: 'GET',
+      data: {id, qty},
       success: function(resp) {
         showCart(resp);
+        $this.find('i')
+          .removeClass('fa-shopping-cart')
+          .addClass('fa-luggage-cart');
       },
       error: function(err) {
 
@@ -67,6 +73,13 @@ $(function () {
       error: function(resp){alert('Error'); console.log(resp)}
     });
   })
+// END BLOCK ADD TO CART
+
+// START BLOCK SEARCH
+
+  $("#input-sort").on('change', function(e){
+    window.location = `${PATH}${window.location.pathname}?${$(this).val()}`;
+  });
 
   $(".open-search").click(function (e) {
     e.preventDefault();
@@ -113,4 +126,36 @@ $(function () {
     const langCode = $(this).data("langcode");
     window.location = `${PATH}/language/change?lang=${langCode}`;
   });
+  // START ADD IN WISH LIST
+
+  $(".product-card").on('click', '.add-to-wishlist', function(e){
+    e.preventDefault();
+    const id = $(this).data('id');
+    let $this = $(this);
+    $.ajax({
+      type: 'GET',
+      url: 'wishlist/add',
+      data: {id},
+      success: function(resp){
+        const response = JSON.parse(resp);
+        $this.removeClass('add-to-wishlist').addClass('delete-to-wishlist');
+        $this.find('i').removeClass('far fa-heart').addClass('fas fa-hand-holding-heart');
+        Swal.fire({
+          title: response.result,
+          text: response.text,
+          icon: 'success'
+          confirmButtonText: 'Ok'
+        });
+      },
+      error: function(resp){
+        const response = JSON.parse(resp);
+        Swal.fire({
+          title: response.result,
+          text: response.text,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        });
+      },
+    })
+  })
 });

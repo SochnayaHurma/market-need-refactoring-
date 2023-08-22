@@ -6,6 +6,12 @@ return [
     'tpl_we_online' => 'Мы в сети',
     'tpl_search' => 'Поиск...',
     'tpl_home_link' => 'Главная',
+    'tpl_about_shop' => 'О магазине',
+    'tpl_pay_deliver' => 'Оплата и доставка',
+    'tpl_nonstop' => 'Без перерыва',
+
+    'tpl_address' => 'г. Москва, ул. Пушкина, д. Колотушкина',
+    'tpl_work_mode' => 'пн-вс: 9:00 - 18:00',
 
     'tpl_home_breadcrumbs' => '<i class="fas fa-home"></i>',
     'tpl_total_pagination' => 'товара(ов) из',
@@ -37,15 +43,14 @@ return [
     '' => '',
     '' => '',
 
-    '' => 'Поиск',
-    '' => 'Поиск по: ',
+    'tpl_wishlist_add_success' => 'Товар добавлен в избранное',
+    'tpl_wishlist_add_error' => 'Ошибка добавления товара в избранное',
+    'tpl_wishlist_delete_success' => 'Товар удален из избранного',
+    'tpl_wishlist_delete_error' => 'Ошибка удаления товара из избранного',
 
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
-
-    '' => '',
+    'tpl_error_404' => '404 - Страница не найдена.',
+    'tpl_success' => 'Удачно',
+    'tpl_error' => 'Ошибка!',
 ]
 
 

@@ -14,7 +14,6 @@
 		<?=$this->getMeta()?>
 	</head>
 	<body>
-
 		<header class="fixed-top">
 			<div class="header-top py-3">
 				<div class="container">
@@ -25,7 +24,7 @@
 							</a>
 						</div>
 						<div class="col text-end icons">
-							<form>
+							<form action="search">
 								<div class="input-group" id="search">
 									<input type="text" class="form-control" placeholder="<?= __("tpl_search")?>..." name="s">
 									<button class="btn close-search" type="button"><i class="fas fa-times"></i></i></button>
@@ -46,8 +45,13 @@
 									<i class="far fa-user"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="#"><?= __("tpl_login")?></a></li>
-									<li><a class="dropdown-item" href="#"><?= __("tpl_signup")?></a></li>
+									<?php if (!empty($_SESSION['user'])): ?>
+										<li><a class="dropdown-item" href="#"><?= __("tpl_login")?></a></li>
+										<li><a class="dropdown-item" href="#"><?= __("tpl_signup")?></a></li>
+									<?php else:?>
+										<li><a class="dropdown-item" href="#"><?= __("tpl_logout")?></a></li>
+										<li><a class="dropdown-item" href="#"><?= __("tpl_cabinet")?></a></li>
+									<?php endif;?>
 								</ul>
 							</div>
 							<?php new \app\widgets\language\Language ?>

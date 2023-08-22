@@ -7,6 +7,8 @@ use dopler_core\Controller;
 use dopler_core\App;
 use app\widgets\language\Language;
 use app\models\AppModel;
+use app\models\Wishlist;
+use RedBeanPHP\R;
 
 
 class AppController extends Controller
@@ -23,7 +25,13 @@ class AppController extends Controller
         );
         $lang = App::$app->getProperty("language");
         \dopler_core\Language::load($lang['code'], $route);
-
+        $query_categories = "SELECT c.*, cd.* 
+                            FROM category AS c 
+                            JOIN category_description AS cd ON c.id = cd.category_id
+                            WHERE cd.language_id = ?";
+        $categories = R::getAssoc($query_categories, [$lang['id']]);
+        App::$app->setProperty("categories_{$lang['code']}", $categories);
+        App::$app->setProperty("wishlist", Wishlist::get_wishlist_ids());
     }
 }
 
