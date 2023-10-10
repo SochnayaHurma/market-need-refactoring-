@@ -4,6 +4,7 @@ namespace app\controllers;
 
 
 use app\models\BreadCrumbs;
+use dopler_core\App;
 
 class ProductController extends AppController
 {

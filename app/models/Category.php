@@ -4,6 +4,7 @@ namespace app\models;
 
 
 use RedBeanPHP\R;
+use dopler_core\Cache;
 
 
 class Category extends AppModel
@@ -54,6 +55,26 @@ class Category extends AppModel
     {  
         return R::count('product', "category_id IN ($ids) AND status = 1");
     }
+
+
+
+    public static function getCacheCategory(array $lang)
+    {
+        $cache = Cache::getInstance();
+        if ($data = $cache->get("categories_{$lang['code']}")) {
+            return $data;
+        } else {
+            $query_categories = "SELECT c.*, cd.* 
+            FROM category AS c 
+            JOIN category_description AS cd ON c.id = cd.category_id
+            WHERE cd.language_id = ?";
+            $categories = R::getAssoc($query_categories, [$lang['id']]);
+
+            $cache->set("categories_{$lang['code']}", $categories, 60 * 60 * 24);
+        }
+
+    }
+
 }
 
 ?>

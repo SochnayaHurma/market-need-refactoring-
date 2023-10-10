@@ -57,7 +57,12 @@ $(function () {
       type: 'GET',
       data: {id},
       success: function(resp){
-        showCart(resp);
+        let url = window.location.toString();
+        if (url.indexOf('cart/view') !== -1) {
+          window.location = url;
+        } else {
+          showCart(resp);
+        }
       },
       error: function(resp){ console.log(resp);alert('Error')}
     });
@@ -140,22 +145,54 @@ $(function () {
         const response = JSON.parse(resp);
         $this.removeClass('add-to-wishlist').addClass('delete-to-wishlist');
         $this.find('i').removeClass('far fa-heart').addClass('fas fa-hand-holding-heart');
-        Swal.fire({
-          title: response.result,
-          text: response.text,
-          icon: 'success'
-          confirmButtonText: 'Ok'
-        });
+        if (response.result == 'success') {
+          Swal.fire({
+            title: response.text,
+            text: '',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          });
+        }
       },
       error: function(resp){
         const response = JSON.parse(resp);
         Swal.fire({
-          title: response.result,
-          text: response.text,
+          title: response.text,
+          text: '',
           icon: 'error',
           confirmButtonText: 'Ok'
         });
       },
     })
+  })
+  $(".product-card").on('click', '.delete-to-wishlist', function(e) {
+    e.preventDefault();
+    const id = $(this).data('id');
+    let $this = $(this);
+    $.ajax({
+      type: 'GET',
+      url: 'wishlist/delete',
+      data: {id},
+      success: function(resp){
+        const url = window.location.toString();
+        if (url.indexOf('wishlist') !== -1) {
+          window.location = url;
+        } else {
+          const response = JSON.parse(resp);
+
+          if (response.result == 'success') {
+            Swal.fire({
+              title: response.text,
+              text: '',
+              icon: 'info',
+              confirmButtonText: 'Ok'
+            })
+            $this.removeClass('delete-from-wishlist').addClass('add-to-wishlist');
+            $this.find('i').removeClass('fas fa-hand-holding-heart').addClass('far fa-heart');
+          }
+        }
+      },
+      error: function(resp){},
+    });
   })
 });

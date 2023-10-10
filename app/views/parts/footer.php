@@ -4,12 +4,11 @@
 					<div class="row">
 						<div class="col-md-3 col-6">
 							<h4><?= __('tpl_information')?></h4>
-							<ul class="list-unstyled">
-								<li><a href="#"><?= __('tpl_home_link')?></a></li>
-								<li><a href="#"><?= __('tpl_about_shop')?></a></li>
-								<li><a href="#"><?= __('tpl_pay_deliver')?></a></li>
-								<li><a href="#"><?= __('tpl_contacts')?></a></li>
-							</ul>
+							<?php new \app\widgets\page\Page([
+								// 'cache' => 0,
+								'class' => 'list-unstyled',
+								'prepend' => '<li><a href="' . baseUrl() . '">' . ___('tpl_home_link') . "</a></li"
+							]);?>
 						</div>
 
 						<div class="col-md-3 col-6">
@@ -59,6 +58,10 @@
 									</div>
 								</div>
 							</div>
+							<div class="logs">
+    
+    <?php $this->getDbLogs()?>
+</div>
 		<script>
 			const PATH = '<?= PATH?>';
 		</script>

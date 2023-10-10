@@ -1,4 +1,6 @@
-<?php if (!empty($slides)): ?>
+<?php 
+
+if (!empty($slides)): ?>
 <div class="container-fluid my-carousel">
 			<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 				<div class="carousel-indicators">
@@ -40,6 +42,7 @@
 		</section>
 		<?php endif; ?>
 
+		
 		<section class="services">
 			<div class="container">
 				<div class="row">

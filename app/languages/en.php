@@ -29,6 +29,10 @@ return [
     'tpl_cart_btn_order' => 'Checkout',
     'tpl_cart_btn_clear' => 'Clear basket',
     'tpl_cart_empty' => 'Empty basket',
+    'tpl_checkout_mail_message' => 'Wait for our administrator to contact you by phone',
+    'tpl_checkout_mail_title' => 'An order was placed on the Dopler Shop website',
+    'tpl_checkout_mail_message_admin' => 'Log in to your account with a service account to find out more details.',
+    'tpl_checkout_mail_title_admin' => 'New order placed',
 
     'tpl_login' => 'Authorization',
     'tpl_signup' => 'Registration',
@@ -51,6 +55,7 @@ return [
     'tpl_wishlist_delete_success' => 'Product removed from favorites',
     'tpl_wishlist_delete_error' => 'Error removing a product from favorites',
 
+    'tpl_not_found_order' => "Not found order",
     'tpl_error_404' => '404 - Page not found.',
     'tpl_success' => 'Success',
     'tpl_error' => 'Error!',

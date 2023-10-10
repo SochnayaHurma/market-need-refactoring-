@@ -27,6 +27,10 @@ return [
     'tpl_cart_btn_order' => 'Оформить заказ',
     'tpl_cart_btn_clear' => 'Очистить корзину',
     'tpl_cart_empty' => 'Корзина пуста',
+    'tpl_checkout_mail_message' => 'Ожидайте, пока с вами свяжется наш администратор по телефону',
+    'tpl_checkout_mail_title' => 'Был оформлен заказ на сайте Dopler Shop',
+    'tpl_checkout_mail_message_admin' => 'Зайдите в свой кабинет с служебной учетной записи чтобы узнать подробности',
+    'tpl_checkout_mail_title_admin' => 'Сделан новый заказ',
 
     'tpl_login' => 'Авторизация',
     'tpl_signup' => 'Регистрация',
@@ -38,16 +42,17 @@ return [
     'tpl_user_credentials' => 'Учетные данные',
     'tpl_user_logout' => 'Выход',
 
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
+    'tpl_signup_email_input' => 'E-mail',
+    'tpl_signup_password_input' => 'Пароль',
+    'tpl_signup_name_input' => 'Имя',
+    'tpl_signup_address_input' => 'Адрес',
 
     'tpl_wishlist_add_success' => 'Товар добавлен в избранное',
     'tpl_wishlist_add_error' => 'Ошибка добавления товара в избранное',
     'tpl_wishlist_delete_success' => 'Товар удален из избранного',
     'tpl_wishlist_delete_error' => 'Ошибка удаления товара из избранного',
 
+    'tpl_not_found_order' => "Данный заказ не найден",
     'tpl_error_404' => '404 - Страница не найдена.',
     'tpl_success' => 'Удачно',
     'tpl_error' => 'Ошибка!',

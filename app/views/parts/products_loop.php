@@ -17,7 +17,7 @@
                 <div class="product-links">
                     <a 
                     class="add-to-cart" 
-                    href="card/add?id=<?= $product['id'];?>"
+                    href="cart/add?id=<?= $product['id'];?>"
                     data-id="<?= $product['id'];?>"
                     ><?= get_cart_icon($product['id']);?></a>
                     <?php if (in_array($product['id'], \dopler_core\App::$app->getProperty('wishlist'))):?>

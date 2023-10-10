@@ -38,19 +38,19 @@
 								<span id="count-items" class="badge bg-danger rounded-pill count-items"><?= $_SESSION['cart.qty'] ?? 0 ?></span>
 							</a>
 
-							<a href="#"><i class="far fa-heart"></i></a>
+							<a href="wishlist"><i class="far fa-heart"></i></a>
 
 							<div class="dropdown d-inline-block">
 								<a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
 									<i class="far fa-user"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<?php if (!empty($_SESSION['user'])): ?>
-										<li><a class="dropdown-item" href="#"><?= __("tpl_login")?></a></li>
-										<li><a class="dropdown-item" href="#"><?= __("tpl_signup")?></a></li>
+									<?php if (empty($_SESSION['user'])): ?>
+										<li><a class="dropdown-item" href="user/login"><?= __("tpl_login")?></a></li>
+										<li><a class="dropdown-item" href="user/signup"><?= __("tpl_signup")?></a></li>
 									<?php else:?>
-										<li><a class="dropdown-item" href="#"><?= __("tpl_logout")?></a></li>
-										<li><a class="dropdown-item" href="#"><?= __("tpl_cabinet")?></a></li>
+										<li><a class="dropdown-item" href="user/logout"><?= __("tpl_logout")?></a></li>
+										<li><a class="dropdown-item" href="user/cabinet"><?= __("tpl_cabinet")?></a></li>
 									<?php endif;?>
 								</ul>
 							</div>
