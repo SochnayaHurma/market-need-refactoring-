@@ -70,7 +70,8 @@ class Category extends AppModel
             WHERE cd.language_id = ?";
             $categories = R::getAssoc($query_categories, [$lang['id']]);
 
-            $cache->set("categories_{$lang['code']}", $categories, 60 * 60 * 24);
+            $cache->set("categories_{$lang['code']}", $categories, 10);
+            return $categories;
         }
 
     }

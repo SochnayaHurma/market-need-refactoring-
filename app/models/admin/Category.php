@@ -8,6 +8,24 @@ use RedBeanPHP\R;
 
 class Category extends AppModel
 {
+    public function category_validate(): bool
+    {
+        $errors = '';
+        foreach ($_POST['category_description'] as $lang_id => $item) {
+            $item['title'] = trim($item['title']);
+            if (empty($item['title'])) {
+                $errors .= "Не заполнено наименование во вкладке {$lang_id}";
+            }
+        }
+
+        if ($errors) {
+            $_SESSION['errors'] = $errors;
+            $_SESSION['form_data'] = $_POST;
+            return false;
+        }
+        return true;
+    }
+
     public function getCountChildrenCategory(int $id): ?int
     {
         return R::count('category', 'parent_id = ?', [$id]);
@@ -33,6 +51,45 @@ class Category extends AppModel
             return false;
         }
     }
+
+    public function save_category(): bool
+    {
+        R::begin();
+        try {
+            $category = R::dispense('category');
+            $category->parent_id = post('parent_id', 'int');
+            $category_id = R::store($category);
+            $category->slug = self::create_slug(
+                'category', 
+                'slug',
+                $_POST['category_description'][1]['title'],
+                $category_id
+            );
+            R::store($category);
+
+            foreach ($_POST['category_description'] as $lang => $post_data) {
+                 R::exec("
+                    INSERT INTO category_description
+                    VALUES
+                    (?, ?, ?, ?, ?, ?)
+                 ", [$category_id, $lang, 
+                    $post_data['title'], 
+                    $post_data['description'],
+                    $post_data['keywords'],
+                    $post_data['content']]);
+            }
+            R::commit();
+            return true;
+        } catch (\Exception $e) {
+            R::rollback();
+            if (DEBUG) {
+                debug($e, 1);
+            }
+            return false;
+        }
+    }
+
+
 }
 
 ?>

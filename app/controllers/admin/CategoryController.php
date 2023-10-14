@@ -10,6 +10,23 @@ class CategoryController extends AppController
         $this->setMeta("Админка - {$title}");
     }
 
+    public function addAction()
+    {
+        $title = 'Добавление категории';
+        if (!empty($_POST)) {
+            if ($this->model->category_validate()) {
+                if ($this->model->save_category()) {
+                    $_SESSION['success'] = 'Категория создана';
+                } else {
+                    $_SESSION['errors'] = 'Что-то пошло не так...';
+                }
+            }
+            redirect();
+        }
+        $this->setMeta($title);
+        $this->set(compact('title'));
+    }
+
     public function deleteAction()
     {
         $id = get('id');
