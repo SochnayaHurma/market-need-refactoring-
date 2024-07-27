@@ -14,6 +14,6 @@ define("CONFIG", ROOT . "/config");
 define("LAYOUT", "ishop");
 define("PATH", "http://dopler");
 define("ADMIN", "http://dopler/admin");
-define("NO_IMAGE", "uploads/no_image.jpg");
+define("NO_IMAGE", "/uploads/no_image.jpg");
 
 require_once ROOT . "/vendor/autoload.php";

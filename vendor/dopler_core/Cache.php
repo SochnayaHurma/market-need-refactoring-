@@ -21,6 +21,7 @@ class Cache
     {
         $file = CACHE . '/' . md5($key) . '.txt';
         if (file_exists($file)) {
+
             $content = unserialize(file_get_contents($file));
             if (time() <= $content['end_time']) {
                 return $content['data'];
@@ -35,7 +36,8 @@ class Cache
     {
         $file = CACHE . '/' . md5($key) . '.txt';
         if (file_exists($file)) {
-            unlink($key);
+
+            unlink($file);
         }
     }
 }

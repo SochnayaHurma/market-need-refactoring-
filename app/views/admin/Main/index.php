@@ -22,7 +22,7 @@
                   </div>
                   <div class="icon"><i class="fa-solid fa-cart-flatbed-suitcase"></i></div>
                   <a 
-                    href="<?=ADMIN.'/orders?status=0'?>" 
+                    href="<?=ADMIN.'/orders?status=new'?>" 
                     class="small-box-footer">
                     More info
                     <i class="fas fa-arrow-circle-right"></i>

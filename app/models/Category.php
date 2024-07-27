@@ -62,6 +62,7 @@ class Category extends AppModel
     {
         $cache = Cache::getInstance();
         if ($data = $cache->get("categories_{$lang['code']}")) {
+
             return $data;
         } else {
             $query_categories = "SELECT c.*, cd.* 
@@ -70,7 +71,9 @@ class Category extends AppModel
             WHERE cd.language_id = ?";
             $categories = R::getAssoc($query_categories, [$lang['id']]);
 
-            $cache->set("categories_{$lang['code']}", $categories, 10);
+            
+            $cache->set("categories_{$lang['code']}", $categories, 150);
+
             return $categories;
         }
 

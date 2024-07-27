@@ -8,6 +8,14 @@ use RedBeanPHP\R;
 
 class Category extends AppModel
 {
+    public function get_category(int $id): array
+    {
+        return R::getAssoc("SELECT cd.language_id, cd.*, c.* 
+                            FROM category_description AS cd
+                            JOIN category AS c ON c.id = cd.category_id
+                            WHERE c.id = ?", [$id]);
+    }
+
     public function category_validate(): bool
     {
         $errors = '';
@@ -48,6 +56,46 @@ class Category extends AppModel
         } catch (\Exception $e) {
             if (DEBUG) debug($e);
             R::rollback();
+            return false;
+        }
+    }
+
+    public function update_category(int $id): bool
+    {
+        R::begin();
+        try {
+            $category = R::load('category', $id);
+            if (!$category) {
+                return false;
+            }
+
+            $category->parent_id = post('parent_id', 'int');
+
+
+            R::store($category);
+
+            foreach ($_POST['category_description'] as $lang => $post_data) {
+                 R::exec("
+                    UPDATE category_description
+                    SET title = ?, description = ?, keywords = ?, content = ?
+                    WHERE category_description.category_id = ?
+                        AND category_description.language_id = ?
+                 ", [
+                    $post_data['title'], 
+                    $post_data['description'],
+                    $post_data['keywords'],
+                    $post_data['content'],
+                    $id,
+                    $lang
+                ]);
+            }
+            R::commit();
+            return true;
+        } catch (\Exception $e) {
+            R::rollback();
+            if (DEBUG) {
+                debug($e, 1);
+            }
             return false;
         }
     }

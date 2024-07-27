@@ -35,7 +35,7 @@ class AppModel extends Model {
 
     public static function create_slug(string $table, string $field, string $value, int $id): string
     {
-        $str = self::str2url($value);
+        $value = self::str2url($value);
         $query = R::findOne($table, "$field = ?", [$value]);
 
         if ($query) {

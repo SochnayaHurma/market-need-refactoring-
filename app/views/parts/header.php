@@ -74,7 +74,7 @@
 								<?php new app\widgets\menu\Menu(
 									[
 										"class" => "navbar-nav ms-auto mb-2 mb-lg-0",
-										"cache" => 0
+										"cache" => 15
 									]
 								); ?>
 							</div>

@@ -8,7 +8,7 @@ function debug($data, $die = false)
 
 function h(string $str)
 {
-    return htmlspecialchars($str);
+    return htmlspecialchars($str, ENT_QUOTES);
 }
 
 function redirect($http = false)

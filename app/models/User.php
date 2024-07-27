@@ -44,7 +44,12 @@ class User extends AppModel
     {
         $user_exist = (bool)R::findOne($this->table_name, "email = ?", [$this->attributes['email']]);
         if ($user_exist) {
-            $this->errors['unique'][] = ___('user_signup_error_email_unique');
+            if ($error_message) {
+                $this->errors['unique'][] = $error_message;
+            } else {
+
+                $this->errors['unique'][] = ___('user_signup_error_email_unique');
+            }
         }
         return $user_exist;
     }
@@ -103,7 +108,7 @@ class User extends AppModel
                           FROM order_download AS o
                           INNER JOIN download AS d ON o.download_id = d.id
                           INNER JOIN download_description AS dd ON o.download_id = dd.download_id
-                          WHERE user_id = ? AND language_id = ?
+                          WHERE user_id = ? AND language_id = ? AND `status` = 1
                           LIMIT $start,$perpage", [$_SESSION["user"]["id"], $lang]);
     }
 

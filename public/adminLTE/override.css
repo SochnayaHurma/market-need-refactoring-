@@ -1,13 +1,68 @@
 a {
-    color: #ee6e73;
+  color: #ee6e73;
 }
 
 a:hover {
-    color: #000;
+  color: #000;
 }
 
-@media screen and (min-width: 992px){
-    .logs {
-        margin-left: 250px;
-    }
+.ck-editor__editable {
+  min-height: 300px;
+}
+
+.select2-container .select2-selection--single {
+  height: 2.4rem !important;
+}
+
+.select2-selection__arrow {
+  height: 2.4rem !important;
+}
+
+/* upload images */
+
+.upload-images img {
+  border: 2px solid #ccc;
+  padding: 3px;
+}
+
+.product-img-upload {
+  position: relative;
+}
+
+.gallery-image .product-img-upload {
+  max-width: 250px;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+}
+
+.upload-images .product-img-upload {
+  max-width: 450px;
+  margin: 0 10px 10px 0;
+  display: inline-block;
+}
+
+.del-img {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  opacity: 0.4;
+}
+.del-img:hover {
+  opacity: 1;
+}
+
+.card-body td img {
+  max-height: 100px;
+}
+
+label.required::before {
+  content: "*";
+  color: #f00;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 992px) {
+  .logs {
+    margin-left: 250px;
+  }
 }

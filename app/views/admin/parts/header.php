@@ -14,7 +14,10 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= PATH ?>/adminLTE/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?= PATH ?>/adminLTE/override.css">
-
+  <link rel="stylesheet" href="<?= PATH ?>/adminLTE/plugins/select2/css/select2.min.css">
+  
+  <script src="<?=PATH?>/adminLTE/ckeditor/ckeditor.js"></script>
+  <script src="<?=PATH?>/adminLTE/ckfinder/ckfinder.js"></script>
 
 </head>
 <body class="hold-transition sidebar-mini">

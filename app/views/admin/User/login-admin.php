@@ -9,7 +9,7 @@
                 <div class="alert alert-danger alert-dismissible">
                     <button class="close" type="button" data-dismiss="alert" aria-hidden="true">×</button>
                     <i class="icon fas fa-ban"></i>
-                    <?= $_SESSION['errors']; unsert($_SESSION['errors'])?>
+                    <?= $_SESSION['errors']; unset($_SESSION['errors'])?>
                 </div>
             <?php endif?>
             <form method="post">
